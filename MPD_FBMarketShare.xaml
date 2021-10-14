@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="753.276073619632,994.748466257669" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="792.736196319018,994.748466257669" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="45">
       <x:String>System.Activities</x:String>
@@ -49,7 +49,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="39">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="38">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -88,7 +88,6 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Management.Automation</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="763.288343558282,929.963190184049" sap2010:WorkflowViewState.IdRef="TryCatch_1">
@@ -105,7 +104,8 @@
       <Variable x:TypeArguments="x:String" Name="g_exMailUser" />
       <Variable x:TypeArguments="ui:GenericValue" Name="g_exMailPass" />
       <Variable x:TypeArguments="x:String" Name="g_nextIndex" />
-      <Variable x:TypeArguments="x:String" Default="RunConfig" Name="g_runConfigSheet" />
+      <Variable x:TypeArguments="x:String" Name="g_runConfigSheet" />
+      <Variable x:TypeArguments="x:String" Name="g_database" />
     </TryCatch.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -246,13 +246,13 @@
                 <InArgument x:TypeArguments="x:Int32" x:Key="in_maxCloseTab">20</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="436.41717791411,1114.89570552147" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_4" InstanceCachePeriod="3000" Visible="False" Workbook="[xcelWb]" WorkbookPath="[g_masterPath + &quot;config.xlsx&quot;]">
+            <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="436.41717791411,1209.12883435583" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_4" InstanceCachePeriod="3000" Visible="False" Workbook="[xcelWb]" WorkbookPath="[g_masterPath + &quot;config.xlsx&quot;]">
               <ui:ExcelApplicationScope.Body>
                 <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Excel Sequence" sap:VirtualizedContainerService.HintSize="376.343558282209,1005.93865030675" sap2010:WorkflowViewState.IdRef="Sequence_173">
+                  <Sequence DisplayName="Excel Sequence" sap:VirtualizedContainerService.HintSize="376.343558282209,1100.1717791411" sap2010:WorkflowViewState.IdRef="Sequence_173">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:Object" Name="runInedexObj" />
                       <Variable x:TypeArguments="x:Int32" Name="runIndex" />
@@ -264,6 +264,14 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="333.938650306748,60.6625766871166" sap2010:WorkflowViewState.IdRef="Assign_227">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[g_runConfigSheet]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">RunConfig</InArgument>
+                      </Assign.Value>
+                    </Assign>
                     <ui:ExcelReadCell Cell="B1" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="333.938650306748,58.8957055214724" sap2010:WorkflowViewState.IdRef="ExcelReadCell_10" SheetName="[g_runConfigSheet]">
                       <ui:ExcelReadCell.Result>
                         <OutArgument x:TypeArguments="x:Object">[runInedexObj]</OutArgument>
@@ -294,7 +302,7 @@
                         <InArgument x:TypeArguments="x:String">[If((runIndex + 1) &gt; maxIndex, 0, (runIndex + 1)).ToString]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <Assign sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_218">
+                    <Assign sap:VirtualizedContainerService.HintSize="333.938650306748,59.4846625766871" sap2010:WorkflowViewState.IdRef="Assign_218">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[runDonwloadSheetName]</OutArgument>
                       </Assign.To>
@@ -302,7 +310,7 @@
                         <InArgument x:TypeArguments="x:String">[runConfigDt.Rows(3 + runIndex)(1).ToString]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <Assign sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_219">
+                    <Assign sap:VirtualizedContainerService.HintSize="333.938650306748,59.4846625766871" sap2010:WorkflowViewState.IdRef="Assign_219">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[runProvinceSheetName]</OutArgument>
                       </Assign.To>
@@ -310,7 +318,7 @@
                         <InArgument x:TypeArguments="x:String">[runConfigDt.Rows(3 + runIndex)(2).ToString]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <Assign sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_223">
+                    <Assign sap:VirtualizedContainerService.HintSize="333.938650306748,59.4846625766871" sap2010:WorkflowViewState.IdRef="Assign_223">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[g_outputCurrentDateText]</OutArgument>
                       </Assign.To>
@@ -318,7 +326,7 @@
                         <InArgument x:TypeArguments="x:String">[System.DateTime.Now.ToString("yyyyMMdd") + "_" + runDonwloadSheetName]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SetLog workflow" sap:VirtualizedContainerService.HintSize="334,113.333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_29" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Invoke\SetLog.xaml">
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SetLog workflow" sap:VirtualizedContainerService.HintSize="333.938650306748,111.901840490798" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_29" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Invoke\SetLog.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <InArgument x:TypeArguments="x:String" x:Key="in_text" xml:space="preserve">["RunIndex : " + runIndex.ToString + vbCrlf + "MaxIndex : " + maxIndex.ToString + vbCrlf + "runDownloadSheetName : " + runDonwloadSheetName + vbCrlf + "runProvinceSheetName " +  runProvinceSheetName]</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="in_logFilePath">[g_logFilePath]</InArgument>
@@ -334,7 +342,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ExcelApplicationScope>
-            <Delay mva:VisualBasic.Settings="{x:Null}" DisplayName="Delay 2 second" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Delay_1">
+            <Delay mva:VisualBasic.Settings="{x:Null}" DisplayName="Delay 2 second" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="436.41717791411,21.7914110429448" sap2010:WorkflowViewState.IdRef="Delay_1">
               <TextExpression.Namespaces>
                 <sco:Collection x:TypeArguments="x:String">
                   <x:String>System.Activities</x:String>
@@ -380,60 +388,65 @@
                 </sap2010:ViewStateManager>
               </sap2010:WorkflowViewState.ViewStateManager>
             </Delay>
-            <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,983.333333333333" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[g_masterPath + &quot;config.xlsx&quot;]">
+            <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="436.41717791411,1083.68098159509" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[g_masterPath + &quot;config.xlsx&quot;]">
               <ui:ExcelApplicationScope.Body>
                 <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Excel Sequence" sap:VirtualizedContainerService.HintSize="376,874.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                  <Sequence DisplayName="Excel Sequence" sap:VirtualizedContainerService.HintSize="376.343558282209,974.723926380368" sap2010:WorkflowViewState.IdRef="Sequence_28">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:ExcelReadRange AddHeaders="True" DataTable="[g_regionTable]" DisplayName="Read Range (Region)" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Region">
+                    <ui:ExcelReadRange AddHeaders="True" DataTable="[g_regionTable]" DisplayName="Read Range (Region)" sap:VirtualizedContainerService.HintSize="333.938650306748,58.8957055214724" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Region">
                       <ui:ExcelReadRange.Range>
                         <InArgument x:TypeArguments="x:String">
                           <Literal x:TypeArguments="x:String" Value="" />
                         </InArgument>
                       </ui:ExcelReadRange.Range>
                     </ui:ExcelReadRange>
-                    <ui:ExcelReadRange AddHeaders="True" DataTable="[g_downloadTable]" DisplayName="Read Range (Download)" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadRange_2" SheetName="[runDonwloadSheetName]">
+                    <ui:ExcelReadRange AddHeaders="True" DataTable="[g_downloadTable]" DisplayName="Read Range (Download)" sap:VirtualizedContainerService.HintSize="333.938650306748,58.8957055214724" sap2010:WorkflowViewState.IdRef="ExcelReadRange_2" SheetName="[runDonwloadSheetName]">
                       <ui:ExcelReadRange.Range>
                         <InArgument x:TypeArguments="x:String">
                           <Literal x:TypeArguments="x:String" Value="" />
                         </InArgument>
                       </ui:ExcelReadRange.Range>
                     </ui:ExcelReadRange>
-                    <ui:ExcelReadRange AddHeaders="True" DataTable="[g_selectiveProvinceTable]" DisplayName="Read Range (Download)" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadRange_13" SheetName="[runProvinceSheetName]">
+                    <ui:ExcelReadRange AddHeaders="True" DataTable="[g_selectiveProvinceTable]" DisplayName="Read Range (Download)" sap:VirtualizedContainerService.HintSize="333.938650306748,58.8957055214724" sap2010:WorkflowViewState.IdRef="ExcelReadRange_13" SheetName="[runProvinceSheetName]">
                       <ui:ExcelReadRange.Range>
                         <InArgument x:TypeArguments="x:String">
                           <Literal x:TypeArguments="x:String" Value="" />
                         </InArgument>
                       </ui:ExcelReadRange.Range>
                     </ui:ExcelReadRange>
-                    <ui:ExcelReadCell Cell="A2" DisplayName="Read Cell (Specific Date)" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_1" SheetName="SpecificDate">
+                    <ui:ExcelReadCell Cell="A2" DisplayName="Read Cell (Specific Date)" sap:VirtualizedContainerService.HintSize="333.938650306748,58.8957055214724" sap2010:WorkflowViewState.IdRef="ExcelReadCell_1" SheetName="SpecificDate">
                       <ui:ExcelReadCell.Result>
                         <OutArgument x:TypeArguments="x:String">[g_specificDownloadDate]</OutArgument>
                       </ui:ExcelReadCell.Result>
                     </ui:ExcelReadCell>
-                    <ui:ExcelReadCell Cell="A1" DisplayName="Read Cell (Mail To)" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_2" SheetName="Email">
+                    <ui:ExcelReadCell Cell="A1" DisplayName="Read Cell (Mail To)" sap:VirtualizedContainerService.HintSize="333.938650306748,58.8957055214724" sap2010:WorkflowViewState.IdRef="ExcelReadCell_2" SheetName="Email">
                       <ui:ExcelReadCell.Result>
                         <OutArgument x:TypeArguments="x:String">[g_mailTo]</OutArgument>
                       </ui:ExcelReadCell.Result>
                     </ui:ExcelReadCell>
-                    <ui:ExcelReadCell Cell="A2" DisplayName="Read Cell (Mail CC)" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_3" SheetName="Email">
+                    <ui:ExcelReadCell Cell="A2" DisplayName="Read Cell (Mail CC)" sap:VirtualizedContainerService.HintSize="333.938650306748,58.8957055214724" sap2010:WorkflowViewState.IdRef="ExcelReadCell_3" SheetName="Email">
                       <ui:ExcelReadCell.Result>
                         <OutArgument x:TypeArguments="x:String">[g_mailCc]</OutArgument>
                       </ui:ExcelReadCell.Result>
                     </ui:ExcelReadCell>
-                    <ui:ExcelReadCell Cell="A3" DisplayName="Read Cell (Mail Subject)" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_4" SheetName="Email">
+                    <ui:ExcelReadCell Cell="A3" DisplayName="Read Cell (Mail Subject)" sap:VirtualizedContainerService.HintSize="333.938650306748,58.8957055214724" sap2010:WorkflowViewState.IdRef="ExcelReadCell_4" SheetName="Email">
                       <ui:ExcelReadCell.Result>
                         <OutArgument x:TypeArguments="x:String">[g_mailSubject]</OutArgument>
                       </ui:ExcelReadCell.Result>
                     </ui:ExcelReadCell>
-                    <Assign sap2010:Annotation.AnnotationText="Remove space from donwloadDate" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Assign_5">
+                    <ui:ExcelReadCell Cell="A2" DisplayName="Read Cell (Database)" sap:VirtualizedContainerService.HintSize="333.938650306748,58.8957055214724" sap2010:WorkflowViewState.IdRef="ExcelReadCell_11" SheetName="Database">
+                      <ui:ExcelReadCell.Result>
+                        <OutArgument x:TypeArguments="x:String">[g_database]</OutArgument>
+                      </ui:ExcelReadCell.Result>
+                    </ui:ExcelReadCell>
+                    <Assign sap2010:Annotation.AnnotationText="Remove space from donwloadDate" sap:VirtualizedContainerService.HintSize="333.938650306748,90.6993865030675" sap2010:WorkflowViewState.IdRef="Assign_5">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[g_specificDownloadDate]</OutArgument>
                       </Assign.To>
@@ -456,7 +469,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ExcelApplicationScope>
-            <ui:FilterDataTable DataTable="[g_regionTable]" DisplayName="Filter Data Table (Clear Empty)" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="434,161.333333333333" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[g_regionTable]" SelectColumnsMode="Keep">
+            <ui:FilterDataTable DataTable="[g_regionTable]" DisplayName="Filter Data Table (Clear Empty)" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="436.41717791411,159.018404907975" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[g_regionTable]" SelectColumnsMode="Keep">
               <ui:FilterDataTable.Filters>
                 <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                   <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EMPTY">
@@ -472,7 +485,7 @@
                 </scg:List>
               </ui:FilterDataTable.SelectColumns>
             </ui:FilterDataTable>
-            <ui:FilterDataTable DataTable="[g_downloadTable]" DisplayName="Filter Data Table (Clear Empty)" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="434,161.333333333333" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[g_downloadTable]" SelectColumnsMode="Keep">
+            <ui:FilterDataTable DataTable="[g_downloadTable]" DisplayName="Filter Data Table (Clear Empty)" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="436.41717791411,159.018404907975" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[g_downloadTable]" SelectColumnsMode="Keep">
               <ui:FilterDataTable.Filters>
                 <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                   <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EMPTY">
@@ -488,7 +501,7 @@
                 </scg:List>
               </ui:FilterDataTable.SelectColumns>
             </ui:FilterDataTable>
-            <ui:FilterDataTable DataTable="[g_selectiveProvinceTable]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="434,161.333333333333" sap2010:WorkflowViewState.IdRef="FilterDataTable_22" OutputDataTable="[g_selectiveProvinceTable]" SelectColumnsMode="Keep">
+            <ui:FilterDataTable DataTable="[g_selectiveProvinceTable]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="436.41717791411,159.018404907975" sap2010:WorkflowViewState.IdRef="FilterDataTable_22" OutputDataTable="[g_selectiveProvinceTable]" SelectColumnsMode="Keep">
               <ui:FilterDataTable.Filters>
                 <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                   <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EMPTY">
@@ -504,7 +517,7 @@
                 </scg:List>
               </ui:FilterDataTable.SelectColumns>
             </ui:FilterDataTable>
-            <Delay mva:VisualBasic.Settings="{x:Null}" DisplayName="Delay 1 second" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Delay_2">
+            <Delay mva:VisualBasic.Settings="{x:Null}" DisplayName="Delay 1 second" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="436.41717791411,21.7914110429448" sap2010:WorkflowViewState.IdRef="Delay_2">
               <TextExpression.Namespaces>
                 <sco:Collection x:TypeArguments="x:String">
                   <x:String>System.Activities</x:String>
@@ -715,7 +728,7 @@
                       <av:PointCollection x:Key="ConnectorLocation">290.122699386503,388.374233128834 290.122699386503,428.374233128834</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Download Files" sap:VirtualizedContainerService.HintSize="866.944785276074,3822.33128834356" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                  <Sequence DisplayName="Download Files" sap:VirtualizedContainerService.HintSize="866.944785276074,4022.57668711656" sap2010:WorkflowViewState.IdRef="Sequence_33">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -727,13 +740,13 @@
                         <InArgument x:TypeArguments="x:String" x:Key="in_logFilePath">[g_logFilePath]</InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
-                    <ui:BrowserScope BrowserType="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Initial Filter" Browser="[g_browser]" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="824.539877300614,2686.23312883436" sap2010:WorkflowViewState.IdRef="BrowserScope_6" UiBrowser="[g_browser]">
+                    <ui:BrowserScope BrowserType="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Initial Filter" Browser="[g_browser]" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="824.539877300614,2886.47852760736" sap2010:WorkflowViewState.IdRef="BrowserScope_6" UiBrowser="[g_browser]">
                       <ui:BrowserScope.Body>
                         <ActivityAction x:TypeArguments="x:Object">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="526.527607361963,2547.23926380368" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="526.527607361963,2747.48466257669" sap2010:WorkflowViewState.IdRef="Sequence_35">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="x:Boolean" Name="shareBtnExist" />
                             </Sequence.Variables>
@@ -756,13 +769,13 @@
                             </ui:OnImageAppear>
                             <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484.122699386503,21.7914110429448" sap2010:WorkflowViewState.IdRef="CommentOut_17">
                               <ui:CommentOut.Body>
-                                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="726.773006134969,1997.74233128834" sap2010:WorkflowViewState.IdRef="Sequence_154">
+                                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="726.773006134969,2034.84662576687" sap2010:WorkflowViewState.IdRef="Sequence_154">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Sequence DisplayName="CurrentPreviousExist" sap:VirtualizedContainerService.HintSize="684.368098159509,1945.32515337423" sap2010:WorkflowViewState.IdRef="Sequence_153">
+                                  <Sequence DisplayName="CurrentPreviousExist" sap:VirtualizedContainerService.HintSize="684.368098159509,1942.38036809816" sap2010:WorkflowViewState.IdRef="Sequence_153">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -778,9 +791,9 @@
                                         </ui:Target>
                                       </ui:UiElementExists.Target>
                                     </ui:UiElementExists>
-                                    <If Condition="[currentExist = False]" sap:VirtualizedContainerService.HintSize="641.963190184049,1706.79754601227" sap2010:WorkflowViewState.IdRef="If_28">
+                                    <If Condition="[currentExist = False]" sap:VirtualizedContainerService.HintSize="641.963190184049,1703.8527607362" sap2010:WorkflowViewState.IdRef="If_28">
                                       <If.Then>
-                                        <Sequence DisplayName="Set current to default" sap:VirtualizedContainerService.HintSize="605.447852760736,1530.69938650307" sap2010:WorkflowViewState.IdRef="Sequence_147">
+                                        <Sequence DisplayName="Set current to default" sap:VirtualizedContainerService.HintSize="605.447852760736,1527.75460122699" sap2010:WorkflowViewState.IdRef="Sequence_147">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -825,9 +838,9 @@
                                             </ui:Click.Target>
                                           </ui:Click>
                                           <Delay DisplayName="Delay 3 sec" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="563.042944785276,21.7914110429448" sap2010:WorkflowViewState.IdRef="Delay_4" />
-                                          <If Condition="[String.IsNullOrEmpty(g_specificDownloadDate) = False]" sap:VirtualizedContainerService.HintSize="563.042944785276,1084.26993865031" sap2010:WorkflowViewState.IdRef="If_27">
+                                          <If Condition="[String.IsNullOrEmpty(g_specificDownloadDate) = False]" sap:VirtualizedContainerService.HintSize="563.042944785276,1081.32515337423" sap2010:WorkflowViewState.IdRef="If_27">
                                             <If.Then>
-                                              <Sequence DisplayName="specificDateExist" sap:VirtualizedContainerService.HintSize="526.527607361963,908.171779141104" sap2010:WorkflowViewState.IdRef="Sequence_148">
+                                              <Sequence DisplayName="specificDateExist" sap:VirtualizedContainerService.HintSize="526.527607361963,905.226993865031" sap2010:WorkflowViewState.IdRef="Sequence_148">
                                                 <Sequence.Variables>
                                                   <Variable x:TypeArguments="x:Boolean" Name="specificDateInCurrentExist" />
                                                 </Sequence.Variables>
@@ -867,15 +880,15 @@
                                                     </ui:Target>
                                                   </ui:UiElementExists.Target>
                                                 </ui:UiElementExists>
-                                                <If Condition="[specificDateInCurrentExist = False]" sap:VirtualizedContainerService.HintSize="484.122699386503,523.58282208589" sap2010:WorkflowViewState.IdRef="If_29">
+                                                <If Condition="[specificDateInCurrentExist = False]" sap:VirtualizedContainerService.HintSize="484.122699386503,520.638036809816" sap2010:WorkflowViewState.IdRef="If_29">
                                                   <If.Then>
-                                                    <Sequence DisplayName="Set to previous" sap:VirtualizedContainerService.HintSize="375.2,347.2" sap2010:WorkflowViewState.IdRef="Sequence_149">
+                                                    <Sequence DisplayName="Set to previous" sap:VirtualizedContainerService.HintSize="376.343558282209,344.539877300613" sap2010:WorkflowViewState.IdRef="Sequence_149">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
-                                                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Drop Down" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_25" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Drop Down" sap:VirtualizedContainerService.HintSize="333.938650306748,106.01226993865" sap2010:WorkflowViewState.IdRef="Click_25" KeyModifiers="None" MouseButton="BTN_LEFT">
                                                         <ui:Click.CursorPosition>
                                                           <ui:CursorPosition Position="Center">
                                                             <ui:CursorPosition.OffsetX>
@@ -894,7 +907,7 @@
                                                           </ui:Target>
                                                         </ui:Click.Target>
                                                       </ui:Click>
-                                                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Previous" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_26" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Previous" sap:VirtualizedContainerService.HintSize="333.938650306748,106.01226993865" sap2010:WorkflowViewState.IdRef="Click_26" KeyModifiers="None" MouseButton="BTN_LEFT">
                                                         <ui:Click.CursorPosition>
                                                           <ui:CursorPosition Position="Center">
                                                             <ui:CursorPosition.OffsetX>
@@ -932,6 +945,35 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                             </ui:CommentOut>
+                            <Sequence DisplayName="Select Database Before Download" sap:VirtualizedContainerService.HintSize="484.122699386503,160.196319018405" sap2010:WorkflowViewState.IdRef="Sequence_175">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" sap:VirtualizedContainerService.HintSize="333.938650306748,67.7300613496932" sap2010:WorkflowViewState.IdRef="Click_27" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                <ui:Click.CursorPosition>
+                                  <ui:CursorPosition Position="Center">
+                                    <ui:CursorPosition.OffsetX>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:CursorPosition.OffsetX>
+                                    <ui:CursorPosition.OffsetY>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:CursorPosition.OffsetY>
+                                  </ui:CursorPosition>
+                                </ui:Click.CursorPosition>
+                                <ui:Click.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="2c7bc33d-7247-4334-b7a9-c91542413451">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:Click.Target>
+                              </ui:Click>
+                            </Sequence>
                             <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Keep Open" sap:VirtualizedContainerService.HintSize="484.122699386503,153.717791411043" sap2010:WorkflowViewState.IdRef="ClickImage_15" KeyModifiers="None" MouseButton="BTN_LEFT">
                               <ui:ClickImage.CursorPosition>
                                 <ui:CursorPosition Position="Center">
@@ -1588,7 +1630,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:CommentOut>
-        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="333.938650306748,21.7914110429448" sap2010:WorkflowViewState.IdRef="CommentOut_24">
+        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484.122699386503,21.7914110429448" sap2010:WorkflowViewState.IdRef="CommentOut_24">
           <ui:CommentOut.Body>
             <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376.343558282209,236.171779141104" sap2010:WorkflowViewState.IdRef="Sequence_164">
               <sap:WorkflowViewStateService.ViewState>
