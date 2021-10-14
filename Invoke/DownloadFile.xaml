@@ -1,0 +1,343 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="DownloadFile" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_outputName" Type="InArgument(x:String)" />
+    <x:Property Name="in_browser" Type="InArgument(ui:Browser)" />
+    <x:Property Name="in_timeout" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_imgAccuracy" Type="InArgument(x:Double)" />
+    <x:Property Name="in_provinceTable" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_allDistrictTable" Type="InArgument(sd:DataTable)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>762,2265</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>DownloadFile_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="54">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="54">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="DownloadFile" sap:VirtualizedContainerService.HintSize="602,2200" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Default="[Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)+&quot;\Downloads&quot;]" Name="downloadPath" />
+      <Variable x:TypeArguments="si:FileInfo" Name="downloadFIle" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="560,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;Download : &quot; + in_outputName]" />
+    <Delay mva:VisualBasic.Settings="{x:Null}" DisplayName="Delay 2 second" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="560,22" sap2010:WorkflowViewState.IdRef="Delay_1">
+      <TextExpression.Namespaces>
+        <sco:Collection x:TypeArguments="x:String">
+          <x:String>System.Activities</x:String>
+          <x:String>System.Activities.Statements</x:String>
+          <x:String>System.Activities.Expressions</x:String>
+          <x:String>System.Activities.Validation</x:String>
+          <x:String>System.Activities.XamlIntegration</x:String>
+          <x:String>Microsoft.VisualBasic.Activities</x:String>
+          <x:String>System</x:String>
+          <x:String>System.Collections.Generic</x:String>
+          <x:String>System.Data</x:String>
+          <x:String>System.Diagnostics</x:String>
+          <x:String>System.IO</x:String>
+          <x:String>System.Linq</x:String>
+          <x:String>System.Management.Automation</x:String>
+          <x:String>System.Net.Mail</x:String>
+          <x:String>System.Xml</x:String>
+          <x:String>System.Xml.Linq</x:String>
+          <x:String>UiPath.Library</x:String>
+          <x:String>System.Windows.Markup</x:String>
+        </sco:Collection>
+      </TextExpression.Namespaces>
+      <TextExpression.References>
+        <sco:Collection x:TypeArguments="AssemblyReference">
+          <AssemblyReference>System.Activities</AssemblyReference>
+          <AssemblyReference>mscorlib</AssemblyReference>
+          <AssemblyReference>System.Data</AssemblyReference>
+          <AssemblyReference>System</AssemblyReference>
+          <AssemblyReference>System.Core</AssemblyReference>
+          <AssemblyReference>System.Management.Automation</AssemblyReference>
+          <AssemblyReference>System.Xml</AssemblyReference>
+          <AssemblyReference>System.Xml.Linq</AssemblyReference>
+          <AssemblyReference>UiPath.Library</AssemblyReference>
+          <AssemblyReference>PresentationFramework</AssemblyReference>
+          <AssemblyReference>WindowsBase</AssemblyReference>
+          <AssemblyReference>PresentationCore</AssemblyReference>
+          <AssemblyReference>System.Xaml</AssemblyReference>
+        </sco:Collection>
+      </TextExpression.References>
+      <sap2010:WorkflowViewState.ViewStateManager>
+        <sap2010:ViewStateManager>
+          <sap2010:ViewStateData sap:VirtualizedContainerService.HintSize="200,22" Id="Delay_1" />
+        </sap2010:ViewStateManager>
+      </sap2010:WorkflowViewState.ViewStateManager>
+    </Delay>
+    <ui:BrowserScope BrowserType="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" UiBrowser="{x:Null}" Browser="[in_browser]" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="560,1614" sap2010:WorkflowViewState.IdRef="BrowserScope_1" TimeoutMS="[in_timeout]">
+      <ui:BrowserScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Download Do" sap:VirtualizedContainerService.HintSize="526,1506" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Name="popupExist" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image Download" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="ClickImage_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:ClickImage.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:ClickImage.CursorPosition>
+              <ui:ClickImage.Image>
+                <ui:ImageTarget Image="{x:Null}" Accuracy="[in_imgAccuracy]" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAqCAYAAAD1T9h6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMASURBVGhD7ZjLaxRBEMb927x49SqC4MmLByEnQTx48iKSqzfxoHgQCUQxmgTxIMuK+NqwPghGEtw8fMQkIPgo5zdLr7uz/ayeZRnIBx+Z7a6urq+nu7omR6ThOBQwbdQm4Ou+SGdD5ElX5N5LkTttkdutPnmmjT5ssK0L2QLe90QWXovMPS8CfCvyZl1kbVuktyuys9cnz7TRhw22jGFsLtQCPhYBsaqLHZHu5//BxpIxjMUHvrRQCWh9EJl/oQu8SnzgC58aJAnY/9l/9WwDWzA5xCe+mSMF0QJwzOtur9oDqIP4Zo4UEdECWJ1JBm/IHMwViygB7M9JbBsXmSv2TAQFkCE4ZLaJJknmjMlOQQHsyTqyTSqZk7lD8ArgoiFX2ybwcfuHyNEzcyOkzWbrI3OHLjuvAA6TZvVX1g7k+MyDwW8EtLvfR2xiyNyhA+0UQL3ClW9zHOLisy05d+Xp4PfMbEsetjdHbGJJDL7aySmgLMyUmefG/VW5fP3V4DfPtA3bxJIYiMUFpwAqR4ovm9MQqwFXBaWwLACLWFxwCiADUEHanIZY3TLVLZVCYvBlI6cAavjhkjiGvW9/yr8nzj8qD7Jp55m2YZtYEgOxuOAUwIeIzaGLBGlS5rGz82P9tJn+Tzu/xvp9JBYXahMAT15YktlbK9Y+ePVmpxSwufvX2u+iSoBmC7Gypy89toqgjb71L7/H+nxUbyHtIbaJMMGnbh2oPsQ5adSIIH1eu/tOHTxUp9GciwwS8KmLyyW1wUP1RZZaSrDStnYbU2zVpQRIKebILrZ2G2Nts4o5kFJOs1VMng8RW5uPKrPLaUAG0JTUuWROX/YxCApo/CclaPRHvQGHqbH/VgGN/8cWwDGrM4nthE98pwQPkgQYsD85ZHVkJ3zgK3bPV6ESAMgQvG5ytUYIYxiLj5hs44JagAEXDa+eK59tQPFFBTlcivNMW1mYFTbYMiZ0ScUgW4AB9UpZABaVI6tKDc+HCOSZNvqw8dU2qahNwLRwKGC6EPkHzuNrhGdIwKEAAAAASUVORK5CYII=" />
+              </ui:ClickImage.Image>
+              <ui:ClickImage.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="07c8375d-a2f8-4d40-bf8c-d772ce864904" TimeoutMS="[in_timeout]">
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:ClickImage.Target>
+            </ui:ClickImage>
+            <ui:UiElementExists DisplayName="Popup Download Exist" Exists="[popupExist]" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+              <ui:UiElementExists.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6c8aed14-3d42-4582-b06b-0dcc9e639fab" InformativeScreenshot="9508ad0e0174bd45de635c7c68f86b93" Selector="&lt;wnd app='firefox.exe' cls='MozillaDialogClass' title='*' /&gt;" TimeoutMS="[in_timeout]">
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:UiElementExists.Target>
+            </ui:UiElementExists>
+            <If Condition="[popupExist = False]" sap:VirtualizedContainerService.HintSize="484,282" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image Download" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ClickImage_4" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="True">
+                  <ui:ClickImage.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:ClickImage.CursorPosition>
+                  <ui:ClickImage.Image>
+                    <ui:ImageTarget Image="{x:Null}" Accuracy="[in_imgAccuracy]" InitialScalingFactor="1.25" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGEAAAAzCAYAAACHQGZfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAUxSURBVHhe7Vv9T1tVGPZPMzH+ZJRkZGYxUbMlThOcH8Np+EgMbos4ozZZ6LboluAPyzIjjg2kOAkUKLTYlTEzZLCWBgYtX7NAxkSFZ+c5d7ejeFd6b9d7Tu19kie9Pffcc968z73vec972+fgQTk8ETSAJ4IG8ETQAJ4IGqAsRFhYBcZmgN5xoOMm0PYb8MOIQR6zjefYh33LDdqKsLYBRKeBKzeAn8eAcByYSAEzK0AqAyytGeQx23iOfdiX1/BajlEO0E6EB5vCmXfFHR41nEoHL6/bI6/htXIMMRbH1BlaiTCVNsILHcg73MrBdsgxpBhiTI6tK7QRgXcsQ0lyydqhxZBjypAm5tARykXY2jYW1eAfRoy3cuKzIMfmHJyLc+oE5SLQKYN3rB1XCnIuzqkTlIrA8MC708pZpSTn1Ck0KROBCyXjdClD0NPIOTm3Lou1EhGYMjJjKcUiXCg5N23QIX1VIgJDAVNHK+e4SdqgQ1hyXQTuYrmJehb7gGJJG2iL6p216yKwnFDMU5BIP8TLtdfx5vFhfHQ6hhfe7UZz6y15bmF1+z/99yJtoU0q4boIrOs4KUUsrRkO7hldxGuNPZhKbcrv5zvjqDkVcrzA0xbapBKuisAKJ7MSK2fsxcXVLfl5ITCLg0192fbeaArVdX2Ip/+R352IQZtUVl9dFYGlZqehyHTuqUtT+OCrcLZ9dGoVVcd6MJrYeNzPWUiibargqgjcqbLkbOWIvbj4WIT6lhv49MLtbPvk/Caq64MIji7L7wsZ44mxQ9qkchftqgh8+eJkPSDTfxp3eE3zIJov3sm2p+5vY39jEFeDM/IpcLI40ybapgquisDNUTGp6aJw8Fsn+/FTaF5+N0PPUd8I/D+O5/S1Q5mqCttUwVUR+DrSycKZEk/BxMwG+n9fRvWxbsQmM7I9nTFE+KL1JurPxnB7eh3x1F851xZC2kTbVMFVES5HrJ3wNJqC+duTeP7wVeyv68U7n4eQWvlXtjOj4WdHaA5vHI/gldpf5CI9lnyYc30hpG2qUBZPQiCSxkvvB3CuPS5D0u64z7A0ObeBQycGceTLIZGu/m1rnop6EopZEzpCs3j1k+sIhI31YLcQTd/GcERs2maXjE2cHVbUmuA0OzLTU4adKhFyAuE5o10IwU1cgz+Kwyf6kUgZYcguKyo7crJPMDMg87Nz6B6qPgygO2I8EQ0tUbx9cgDJBWNBNsOQ2b8QVtQ+oZgdM2mGoGsD93CgrgeHPuvDe2INMEOQHcfvZEXtmO3Wjm4l1vF9ICFS0S15h5NmWto5NIfGM7HsE0CBGJ7YZ2g8g9auRM5Y+VhRtSPCThU1MDyPAw39lufy8bvuWez7+FfLc7tJWyqqikrYeZ8wMLaCF2u64Lt8F+euJeG/ksCZ9mnJFnF8ui0u9hBGm1/wrKCvLYHXmwZEmBq2HHM3aUvFvU+w82Zt/v42vr40gdpvRlDri4jPcF4e9QnyWPTtGjEKevkoU9NKfLNGeO+Yc6FEBO/XFrlQIgLh/e7oCZSJQDAUeL/AUywCwZ2q91tUxfB+la2BCCYYHhinS7FYc0yOrVMI2gltRCC4UDJjYerotOS9kxyDY3FMXRZhK2glAsGUkXes/L+ZcKCT0jevkc7nGGIsHdLQfNBOBBPcxbKcwLqODCXCqSw508G8wxnjSR6zjefYh315Da9VvRMuFNqKsBOscLLUzEWVL18YXvg6kuQx23iOfVRWQ52iLET4v8MTQQN4ImgATwQN4ImgHMAjTJzJ8i2VRG4AAAAASUVORK5CYII=" />
+                  </ui:ClickImage.Image>
+                  <ui:ClickImage.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="07c8375d-a2f8-4d40-bf8c-d772ce864904" TimeoutMS="[in_timeout]">
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:ClickImage.Target>
+                </ui:ClickImage>
+              </If.Then>
+            </If>
+            <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Window="{x:Null}" sap2010:Annotation.AnnotationText="Use to wait popup appear" DisplayName="Attach Window Firefox Popup" sap:VirtualizedContainerService.HintSize="484,199" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="1aad751a0ba6aa47b6c719bc963b6819" Selector="&lt;wnd app='firefox.exe' cls='MozillaDialogClass' title='*' /&gt;" TimeoutMS="[in_timeout]">
+              <ui:WindowScope.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                  </ActivityAction.Argument>
+                  <Delay mva:VisualBasic.Settings="{x:Null}" DisplayName="Delay 3 second" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Delay_1">
+                    <TextExpression.Namespaces>
+                      <sco:Collection x:TypeArguments="x:String">
+                        <x:String>System.Activities</x:String>
+                        <x:String>System.Activities.Statements</x:String>
+                        <x:String>System.Activities.Expressions</x:String>
+                        <x:String>System.Activities.Validation</x:String>
+                        <x:String>System.Activities.XamlIntegration</x:String>
+                        <x:String>Microsoft.VisualBasic.Activities</x:String>
+                        <x:String>System</x:String>
+                        <x:String>System.Collections.Generic</x:String>
+                        <x:String>System.Data</x:String>
+                        <x:String>System.Diagnostics</x:String>
+                        <x:String>System.IO</x:String>
+                        <x:String>System.Linq</x:String>
+                        <x:String>System.Management.Automation</x:String>
+                        <x:String>System.Net.Mail</x:String>
+                        <x:String>System.Xml</x:String>
+                        <x:String>System.Xml.Linq</x:String>
+                        <x:String>UiPath.Library</x:String>
+                        <x:String>System.Windows.Markup</x:String>
+                      </sco:Collection>
+                    </TextExpression.Namespaces>
+                    <TextExpression.References>
+                      <sco:Collection x:TypeArguments="AssemblyReference">
+                        <AssemblyReference>System.Activities</AssemblyReference>
+                        <AssemblyReference>mscorlib</AssemblyReference>
+                        <AssemblyReference>System.Data</AssemblyReference>
+                        <AssemblyReference>System</AssemblyReference>
+                        <AssemblyReference>System.Core</AssemblyReference>
+                        <AssemblyReference>System.Management.Automation</AssemblyReference>
+                        <AssemblyReference>System.Xml</AssemblyReference>
+                        <AssemblyReference>System.Xml.Linq</AssemblyReference>
+                        <AssemblyReference>UiPath.Library</AssemblyReference>
+                        <AssemblyReference>PresentationFramework</AssemblyReference>
+                        <AssemblyReference>WindowsBase</AssemblyReference>
+                        <AssemblyReference>PresentationCore</AssemblyReference>
+                        <AssemblyReference>System.Xaml</AssemblyReference>
+                      </sco:Collection>
+                    </TextExpression.References>
+                    <sap2010:WorkflowViewState.ViewStateManager>
+                      <sap2010:ViewStateManager>
+                        <sap2010:ViewStateData sap:VirtualizedContainerService.HintSize="200,22" Id="Delay_1" />
+                      </sap2010:ViewStateManager>
+                    </sap2010:WorkflowViewState.ViewStateManager>
+                  </Delay>
+                </ActivityAction>
+              </ui:WindowScope.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:WindowScope>
+            <ui:GetLastDownloadedFile DisplayName="Wait for Download" DownloadFolder="[downloadPath]" File="[downloadFIle]" sap:VirtualizedContainerService.HintSize="484,561" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" Timeout="[(in_timeout * 2)]">
+              <ui:GetLastDownloadedFile.Body>
+                <ActivityAction>
+                  <Sequence DisplayName="send hot key" sap:VirtualizedContainerService.HintSize="376,354" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey save file" sap:VirtualizedContainerService.HintSize="334,116" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="s" KeyModifiers="Alt">
+                      <ui:SendHotkey.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="515b7110-5c28-4e8b-aed5-8bbcc42c6982" Selector="&lt;wnd app='firefox.exe' cls='MozillaDialogClass' title='*' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:SendHotkey.Target>
+                    </ui:SendHotkey>
+                    <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click OK" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ClickImage_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+                      <ui:ClickImage.CursorPosition>
+                        <ui:CursorPosition Position="Center">
+                          <ui:CursorPosition.OffsetX>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetX>
+                          <ui:CursorPosition.OffsetY>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetY>
+                        </ui:CursorPosition>
+                      </ui:ClickImage.CursorPosition>
+                      <ui:ClickImage.Image>
+                        <ui:ImageTarget Image="{x:Null}" Accuracy="[in_imgAccuracy]" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFMAAAAjCAYAAADokDbBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEmSURBVGhD7dbLEYMgFIVhaqIcKsmKXiiFKrK2Azu4EQ1RQCePORLvzFn8CwluvrkBzTiOwjARExgxgRETGDGBERPYIaa53dmbGrN6Ibf3MitrzOqFXH5hGAZWRUxgxARGTGDEBEZMYHowgxNjzCvr4+b3IM5Y8TE/R/F22ufCZs/56cCcIVusFbTEDK7G7pMCzAXOhWo9erHGSZifV8zobfeJzF0fs0DblpDzND4x/TTB1kts9vZJB+Yu0HZiE+ZyljYT3DEdmJ9OZkh781r/ro/55Zm5XFZ7+OenAHOqAVr+1ke3+XwJ/eHs1IGZqr4zy0ktMVPp86g3qB5MBRETGDGBERMYMYERE9jPmOy4xqxeyO29zMoas3qB/R4xgRETGDFhjfIA4JKS6g5FJD0AAAAASUVORK5CYII=" />
+                      </ui:ClickImage.Image>
+                      <ui:ClickImage.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9e08c526-4078-4862-b2f5-97cd3b7a9a39" Selector="&lt;wnd app='firefox.exe' cls='MozillaDialogClass' title='*' /&gt;" TimeoutMS="[in_timeout]">
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:ClickImage.Target>
+                    </ui:ClickImage>
+                  </Sequence>
+                </ActivityAction>
+              </ui:GetLastDownloadedFile.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:GetLastDownloadedFile>
+          </Sequence>
+        </ActivityAction>
+      </ui:BrowserScope.Body>
+    </ui:BrowserScope>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="560,139" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;=== Move Detail ===&quot;  + vbCrlf + &quot;sourcePath : &quot; + downloadFIle.FullName + vbCrlf + &quot;targetPath : &quot; + in_outputName + System.IO.Path.GetExtension(downloadFile.Name)]" />
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DFile_Move" sap:VirtualizedContainerService.HintSize="560,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="DearLib\DFile_Move.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sourcePath">[downloadFile.FullName]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_destPath">[in_outputName + System.IO.Path.GetExtension(downloadFile.Name)]</InArgument>
+        <InArgument x:TypeArguments="x:Boolean" x:Key="in_wantOverwrite">True</InArgument>
+        <OutArgument x:TypeArguments="x:Boolean" x:Key="out_isSucc" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+  </Sequence>
+</Activity>

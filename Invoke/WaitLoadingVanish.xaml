@@ -1,0 +1,98 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Wait_Loading_Vanish" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="636.8,466.4" sap2010:WorkflowViewState.IdRef="Test2_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="26">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="27">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Wait Loading Vanish" sap:VirtualizedContainerService.HintSize="475.2,308.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:OnUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" ContinueOnError="True" DisplayName="On Element Appear" sap:VirtualizedContainerService.HintSize="433.6,216" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" RepeatForever="False">
+      <ui:OnUiElementAppear.Body>
+        <ui:WaitImageVanish DisplayName="Wait Image Vanish" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="WaitImageVanish_1">
+          <ui:WaitImageVanish.Image>
+            <ui:ImageTarget Image="{x:Null}" Accuracy="0.7" InitialScalingFactor="1.25" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGcAAAAqCAYAAACuh0VLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAUMSURBVHhe7ZnvSxxHGMf7v+ibJYIKJ9ReiNoSjUSJF9soCViNSJOoodZa/NEktJFo08CJEQ0ntpLSmihXc6FqU4sN2kTFWC6NNt5h9cKxKCcF/4NvZ3Zn93Y3e3pp73BO5sXnzbPffWb2vjPP/Li3dv7ZhYBPhDkcI8zhGGEOxwhzOEaYwzHCHI4R5nCMMIdjhDkcI8zhGGEOxwhzOCYOcyLYWFvDi1XKJsK2moPCh4a0dKRRinuxyOKByW5UFBahoutnBEz61CIOc5bhLmY/QNpleG01B4WdOdNoy9L6Wwz3kvWd1OEQmhOGrylHjTma4QtZ30kdDqE5FFqKg9jYMmpTj+SYI/sx3nMV1WVH4XSS2n/pKtw+v/16xbQXK4qI9ihO1cTSRrA6dxc3alxqzk89ePTSa2POGh7cbMEnzZRhzLL3Z78xxLYCmB3uZv1zobprDM9kY1sUS3uXunFvOYCpXpbn5k9YMekTT8LNkReHcNah6c04zg1h3jCa5cV+lGXYa4+4+k1a/w91cFh1jpxoTDfHvr/eRi2Wj1NlrOwZkEr6TTNvvu80jlg0aRJpT1vPTDM1OSTWnK05XM/TtBLefr+ejLJ6lOdKLJaOvM45yIp+AV26Nge1PV6Mjn2HjhJNK6F2JKzmDd1HraRpM1BYQ0fveZzMjOaN3xxCxjEyE2iOKhToebPR9kjV7iz14oSm1dszf0fKmbMxUgeJdd7RPs1MIAS9+EgbcRLJQWfEqxn0KWWG4NEMIzy+gXdYDqlpQomtDFay9o3m0rx3cZbF4zfHiWszEfV9gv9OOYuno6TvuRL7rdOpx07cWtqnveSRUHOm2rOZzonrj+N9to3g02kya+jMIQzU6+akNfoUja9JG7HWd+02BPuZY9lej19mcWJEzzKJrcFzRtOW4vYfBm3MDUhySKg5MX8AwmJPMXuWjoZxNRZ+4kGVsVRYYebEzpsMc/b63kNqzvytIvZMwscPSSxEPlQvdaXo8C2otxC/duG4oiMcuDkXMWrajqewOct9pUyXjurv2WKusIqB01qOSnj+IrGHzfr6dJzUdV1rXIyZOVFjrXmTYY6xjGajZTK6PnFuTjmuaWuDhZkXRPunBy6t8446fPt0E2F5E78PR7fB0pkh+GlegzlZF8awSkeo/BI/tr+nxzVzdp58hTwtxvIG1/2Y7CyNahNojnFjI73bjHt7treL5yONyCfb+vxadlTYWoKntgAORwHOD6obCnpsqKRb/8JWeIOG9vfgDc2JjbqOkPNBj+EDrJDy5V5kI3FrGm0xzkM6F7xsp/Q3+XFfP5uYSKA5NMdtfUsfA9v2WMk2zv6sDkyZ2je2szcJNoeyjWf3W2E6g5BOZ55sxajfWCLIaPJ70VKUEdVJuaga7EWDdvZgH6boldF4LHowpFpyNvpa21kl1ByCvICBD3OjA03KwgfdX9pspSOYusJ02l1eaAItykaHnPU+m8AG0QVIO0r1MA7QfYjDnP9OeF39qyH42tWIGVUX312YHArGrf1/RCCTNtT22DcYyzYpz8brGzkUtlw5RUhJt5ggh9+o30k1J3VRy3Om6wuM03WTxMIrv8B9LlpaXXdWbd5LLMIcO149QH2MOz+KVNJruvdLFsKcGND18PMKwxpHoXdyV+xusJODMGdfthGkh+P1bZtnyUWYwzHCHI4R5nCMMIdjhDkcI8zhGGEOxwhzOEaYwy27+BcwMlRUTQVLPQAAAABJRU5ErkJggg==" />
+          </ui:WaitImageVanish.Image>
+          <ui:WaitImageVanish.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fd6d45c1-0d0c-4ce5-98d0-05c7940ad2e2" Selector="&lt;html app='firefox.exe' title='*' /&gt;" TimeoutMS="20000">
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:WaitImageVanish.Target>
+        </ui:WaitImageVanish>
+      </ui:OnUiElementAppear.Body>
+      <ui:OnUiElementAppear.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b351fc6a-501d-4047-b876-df9fdf5e4a25" Selector="&lt;html app='firefox.exe' title='*' /&gt;&lt;webctrl aaname='Loading…' parentid='vizContent' tag='DIV' /&gt;" TimeoutMS="3000">
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:OnUiElementAppear.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:OnUiElementAppear>
+  </Sequence>
+</Activity>
