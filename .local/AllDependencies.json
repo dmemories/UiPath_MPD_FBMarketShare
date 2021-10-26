@@ -5305,9 +5305,9 @@
     "restore": {
       "projectUniqueName": "MPD_FBMarketShare",
       "projectName": "MPD_FBMarketShare",
-      "projectPath": "C:\\Users\\Alkaiser\\Desktop\\MPD_FBMarketShare 111021\\MPD_FBMarketShare\\.local",
+      "projectPath": "C:\\Users\\Alkaiser\\Desktop\\UiPath_MPD_FBMarketShare\\.local",
       "packagesPath": "C:\\Users\\Alkaiser\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alkaiser\\Desktop\\MPD_FBMarketShare 111021\\MPD_FBMarketShare\\.local"
+      "outputPath": "C:\\Users\\Alkaiser\\Desktop\\UiPath_MPD_FBMarketShare\\.local"
     },
     "frameworks": {
       "net461": {
